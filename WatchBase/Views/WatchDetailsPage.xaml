@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WatchBase.ViewModels"
+             xmlns:m="clr-namespace:WatchBase.Models"
+             x:Class="WatchBase.Views.WatchDetailsPage" x:DataType="vm:WatchDetailsViewModel"
+             Title="{x:Binding WatchDetails.Name}">
+
+    <VerticalStackLayout Padding="24" Spacing="8">
+        <Image Source="{x:Binding WatchDetails.ImageUrls[0]}" Aspect="AspectFit" HeightRequest="200"/>
+        <Image Source="{x:Binding WatchDetails.Brand.LogoUrl}" HeightRequest="50"/>
+        <Label Text="{x:Binding WatchDetails.Reference}" FontSize="Title"/>
+        <Label Text="{x:Binding WatchDetails.Description}"/>
+    </VerticalStackLayout>
+</ContentPage>

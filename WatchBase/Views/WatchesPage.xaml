@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WatchBase.ViewModels"
+             xmlns:m="clr-namespace:WatchBase.Models"
+             x:Class="WatchBase.Views.WatchesPage" x:DataType="vm:WatchesViewModel">
+
+    <RefreshView IsRefreshing="{x:Binding IsRefreshing}">
+        <CollectionView ItemsSource="{x:Binding Watches}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" EmptyView="No items">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:Watch">
+                    <HorizontalStackLayout>
+                        <Image Source="{x:Binding Thumbnail}" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
+                        <VerticalStackLayout>
+                            <Label Text="{x:Binding Name}" FontSize="Title"/>
+                            <Label Text="{x:Binding Reference}" FontSize="Subtitle"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
